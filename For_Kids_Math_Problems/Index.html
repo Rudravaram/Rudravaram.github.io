@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/styles.css">
+    <title>Math Test for All Ages</title>
+</head>
+<body>
+    <h1>Math Test for All Ages <span class="result-display" id="resultDisplay"></span></h1>
+
+    <body>
+
+        <h1>Math Test for All Ages <span class="result-display" id="resultDisplay"></span></h1>
+        
+        <div class="options-section">
+            <h3>Select Number of Digits</h3>
+            <label for="num1Digits">Number of digits for first number:</label>
+            <select id="num1Digits">
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <label for="num2Digits">Number of digits for second number:</label>
+            <select id="num2Digits">
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+        
+        <div class="options-section">
+            <h3>Select Number of Questions</h3>
+            <label for="numDivisionQuestions">Number of Division Questions:</label>
+            <select id="numDivisionQuestions">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </select>
+            <label for="numAdditionQuestions">Number of Addition Questions:</label>
+            <select id="numAdditionQuestions">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </select>
+            <label for="numSubtractionQuestions">Number of Subtraction Questions:</label>
+            <select id="numSubtractionQuestions">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </select>
+            <label for="numMultiplicationQuestions">Number of Multiplication Questions:</label>
+            <select id="numMultiplicationQuestions">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </select>
+        </div>
+        
+        <button id="generateQuestionsButton" onClick="generateQuestions()">Generate Questions</button>
+        
+        <div class="button-container">
+            <button id="printButton" onClick="window.print()">Print</button>
+            <input type="button" onClick="CheckAnswers()" id="CheckAnswers" value="Check Answers">
+        </div>
+        
+        <div id="divisionSection" class="section">
+            <h3>Division Questions</h3>
+        </div>
+        <div id="additionSection" class="section">
+            <h3>Addition Questions</h3>
+        </div>
+        <div id="subtractionSection" class="section">
+            <h3>Subtraction Questions</h3>
+        </div>
+        <div id="multiplicationSection" class="section">
+            <h3>Multiplication Questions</h3>
+        </div>
+        
+        <div id="answersSection" class="section answer-section">
+            <h3>Answers</h3>
+            <div id="divisionAnswers">
+                <h3>Division Answers</h3>
+            </div>
+            <div id="additionAnswers">
+                <h3>Addition Answers</h3>
+            </div>
+            <div id="subtractionAnswers">
+                <h3>Subtraction Answers</h3>
+            </div>
+            <div id="multiplicationAnswers">
+                <h3>Multiplication Answers</h3>
+            </div>
+        </div>
+        
+    <script src="Javascript/script.js"></script>
+</body>
+</html>
