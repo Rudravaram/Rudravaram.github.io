@@ -171,6 +171,9 @@
                 display: flex;
                 justify-content: space-between;
             }
+            .no-print {
+                display: none;
+            }
         }
 
         .answer-section div {
@@ -188,6 +191,8 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: background-color 0.3s, transform 0.3s;
+            display: block;
+            margin: 0 auto;
         }
 
         #generateQuestionsButton:hover {
@@ -203,75 +208,77 @@
 </head>
 <body>
 
-<h1>Math Test for All Ages <span class="result-display" id="resultDisplay"></span></h1>
+<div class="no-print">
+    <h1>Math Test for All Ages <span class="result-display" id="resultDisplay"></span></h1>
 
-<div class="options-section">
-    <h3>Select Number of Digits</h3>
-    <label for="num1Digits">Number of digits for first number:</label>
-    <select id="num1Digits">
-        <option value="1">1</option>
-        <option value="2" selected>2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-    </select>
-    <label for="num2Digits">Number of digits for second number:</label>
-    <select id="num2Digits">
-        <option value="1">1</option>
-        <option value="2" selected>2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-    </select>
-</div>
+    <div class="options-section">
+        <h3>Select Number of Digits</h3>
+        <label for="num1Digits">Number of digits for first number:</label>
+        <select id="num1Digits">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <label for="num2Digits">Number of digits for second number:</label>
+        <select id="num2Digits">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+    </div>
 
-<div class="options-section">
-    <h3>Select Number of Questions</h3>
-    <label for="numDivisionQuestions">Number of Division Questions:</label>
-    <select id="numDivisionQuestions">
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="15">15</option>
-        <option value="20">20</option>
-    </select>
-    <label for="numAdditionQuestions">Number of Addition Questions:</label>
-    <select id="numAdditionQuestions">
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="15">15</option>
-        <option value="20">20</option>
-    </select>
-    <label for="numSubtractionQuestions">Number of Subtraction Questions:</label>
-    <select id="numSubtractionQuestions">
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="15">15</option>
-        <option value="20">20</option>
-    </select>
-    <label for="numMultiplicationQuestions">Number of Multiplication Questions:</label>
-    <select id="numMultiplicationQuestions">
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="15">15</option>
-        <option value="20">20</option>
-    </select>
-</div>
+    <div class="options-section">
+        <h3>Select Number of Questions</h3>
+        <label for="numDivisionQuestions">Number of Division Questions:</label>
+        <select id="numDivisionQuestions">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+        </select>
+        <label for="numAdditionQuestions">Number of Addition Questions:</label>
+        <select id="numAdditionQuestions">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+        </select>
+        <label for="numSubtractionQuestions">Number of Subtraction Questions:</label>
+        <select id="numSubtractionQuestions">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+        </select>
+        <label for="numMultiplicationQuestions">Number of Multiplication Questions:</label>
+        <select id="numMultiplicationQuestions">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+        </select>
+    </div>
 
-<button id="generateQuestionsButton" onClick="generateQuestions()">Generate Questions</button>
+    <button id="generateQuestionsButton" onClick="generateQuestions()">Generate Questions</button>
 
-<div class="button-container">
-    <button id="printButton" onClick="window.print()">Print</button>
-    <input type="button" onClick="CheckAnswers()" id="CheckAnswers" value="Check Answers">
+    <div class="button-container">
+        <button id="printButton" onClick="window.print()">Print</button>
+        <input type="button" onClick="CheckAnswers()" id="CheckAnswers" value="Check Answers">
+    </div>
 </div>
 
 <div id="divisionSection" class="section">
