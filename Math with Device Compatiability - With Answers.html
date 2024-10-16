@@ -60,7 +60,7 @@
         .question input[type="text"] {
             padding: 5px;
             font-size: 16px;
-            width: 50px;
+            width: 100px; /* Increased width */
         }
 
         .question input[type="text"].wrong {
@@ -174,6 +174,11 @@
             }
             .no-print {
                 display: none;
+            }
+            .question input[type="text"] {
+                border: none;
+                border-bottom: 1px solid black;
+                width: 100px;
             }
         }
 
