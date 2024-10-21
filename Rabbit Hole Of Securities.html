@@ -7,11 +7,13 @@
     <style>
         h1, h2, h3 {
             text-align: center;
+            animation: fadeIn 2s ease-in-out;
         }
         img {
             display: block;
             margin-left: auto;
             margin-right: auto;
+            animation: zoomIn 2s ease-in-out;
         }
         .th34-size {
             width: 75%;
@@ -23,10 +25,26 @@
             display: flex;
             justify-content: center;
             flex-wrap: nowrap;
+            animation: slideIn 2s ease-in-out;
         }
         .landscape-row img {
-            width: 30%; /* Adjust the width to fit all images in a single row */
-            margin: 0 5px; /* Add some spacing between images */
+            width: 30%;
+            margin: 0 5px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.5); }
+            to { transform: scale(1); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
         }
     </style>
 </head>
