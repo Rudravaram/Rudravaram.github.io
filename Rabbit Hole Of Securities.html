@@ -5,28 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rabbit Hole Of Securities</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
         h1, h2, h3 {
             text-align: center;
+            opacity: 0;
         }
         img {
             display: block;
             margin-left: auto;
             margin-right: auto;
+            opacity: 0;
         }
         .th34-size {
             width: 75%;
         }
-        -half-size {
+        .half-size {
             width: 40%;
         }
         .landscape-row {
             display: flex;
             justify-content: center;
             flex-wrap: nowrap;
+            opacity: 0;
         }
         .landscape-row img {
-            width: 30%; /* Adjust the width to fit all images in a single row */
-            margin: 0 5px; /* Add some spacing between images */
+            width: 30%;
+            margin: 0 5px;
         }
     </style>
 </head>
@@ -55,5 +64,14 @@
         <img src="https://github.com/user-attachments/assets/4bb091d0-b686-4aed-8cf7-be666ae7ae91" alt="Landscape Image 2">
         <img src="https://github.com/user-attachments/assets/a5821f3f-73e3-4faa-a11a-8af7ff442840" alt="Landscape Image 3">
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script>
+        gsap.from("h1", {duration: 1, y: -50, opacity: 0});
+        gsap.from("h2", {duration: 1, y: -50, opacity: 0, delay: 0.5});
+        gsap.from("h3", {duration: 1, y: -50, opacity: 0, stagger: 0.3, delay: 1});
+        gsap.from("img", {duration: 1, scale: 0.5, opacity: 0, stagger: 0.3, delay: 1.5});
+        gsap.from(".landscape-row", {duration: 1, y: 50, opacity: 0, delay: 2});
+    </script>
 </body>
 </html>
