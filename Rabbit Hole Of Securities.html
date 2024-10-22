@@ -14,31 +14,36 @@
         }
         .container {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             margin: 20px;
         }
         .half-size {
-            width: 30%;
-            margin-right: 20px;
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 20px;
         }
         .th34-size {
-            width: 75%;
+            width: 100%;
+            max-width: 750px;
             align-items: center;
             margin: 0 auto;
             display: block; /* Ensure the image is treated as a block element */
         }
         .text-content {
             flex: 1;
+            padding: 0 20px;
         }
         .landscape-row {
             display: flex;
             justify-content: center;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
         }
         .landscape-row img {
-            width: 30%; /* Adjust the width to fit all images in a single row */
-            margin: 0 5px; /* Add some spacing between images */
+            width: 100%;
+            max-width: 200px;
+            margin: 5px;
             cursor: pointer; /* Change cursor to pointer on hover */
         }
         strong {
@@ -68,6 +73,19 @@
             font-size: 30px;
             color: #fff;
             cursor: pointer;
+        }
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row;
+            }
+            .half-size {
+                width: 30%;
+                margin-right: 20px;
+                margin-bottom: 0;
+            }
+            .text-content {
+                padding: 0;
+            }
         }
     </style>
 </head>
