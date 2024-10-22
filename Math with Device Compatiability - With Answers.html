@@ -341,12 +341,12 @@
                 marks = marks + 1;
                 document.getElementById(id1).classList.remove('wrong');
                 questionDiv.classList.remove('wrong');
-                document.getElementById(resultId).innerText = "Correct!";
+                document.getElementById(resultId).innerText = "&nbsp;&nbsp; Correct!";
                 document.getElementById(resultId).classList.add('correct');
             } else {
                 document.getElementById(id1).classList.add('wrong');
                 questionDiv.classList.add('wrong');
-                document.getElementById(resultId).innerText = "  X! Correct answer: " + correctAns.toFixed(2);
+                document.getElementById(resultId).innerText = "&nbsp;&nbsp; X! Correct answer: " + correctAns.toFixed(2);
             }
             i = i + 1;
         }
