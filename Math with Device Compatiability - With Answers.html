@@ -76,6 +76,10 @@
             color: red; /* Mark the answer in red */
         }
 
+        .result.correct {
+            color: green; /* Highlight correct answer in green */
+        }
+
         #CheckAnswers {
             background-color: #4CAF50;
             color: white;
@@ -338,6 +342,7 @@
                 document.getElementById(id1).classList.remove('wrong');
                 questionDiv.classList.remove('wrong');
                 document.getElementById(resultId).innerText = "Correct!";
+                document.getElementById(resultId).classList.add('correct');
             } else {
                 document.getElementById(id1).classList.add('wrong');
                 questionDiv.classList.add('wrong');
