@@ -164,6 +164,13 @@
         }
 
         @media print {
+            .no-print, .no-print *
+            {
+                display: none !important;
+            }
+            .print-only{
+                display: block !important;
+            }
             .section {
                 page-break-before: always;
             }
@@ -188,6 +195,10 @@
                 border-bottom: 1px solid black;
                 width: 100px;
             }
+        }
+
+        .answer-section {
+            display: none;
         }
 
         .answer-section div {
@@ -308,7 +319,7 @@
     <h3>Multiplication Questions</h3>
 </div>
 
-<div id="answersSection" class="section answer-section">
+<div id="answersSection" class="section answer-section print-only">
     <h3>Answers</h3>
     <div id="divisionAnswers">
         <h3>Division Answers</h3>
@@ -424,7 +435,7 @@
         document.getElementById('additionSection').style.display = 'flex';
         document.getElementById('subtractionSection').style.display = 'flex';
         document.getElementById('multiplicationSection').style.display = 'flex';
-        document.getElementById('answersSection').style.display = 'flex';
+      //  document.getElementById('answersSection').style.display = 'flex';
 
         DesignQuestionPaper(numDivisionQuestions, '÷', minNum1, maxNum1, minNum2, maxNum2, 'divisionSection', 'divisionAnswers');
         DesignQuestionPaper(numAdditionQuestions, '+', minNum1, maxNum1, minNum2, maxNum2, 'additionSection', 'additionAnswers');
