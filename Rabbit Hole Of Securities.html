@@ -39,10 +39,35 @@
         .landscape-row img {
             width: 30%; /* Adjust the width to fit all images in a single row */
             margin: 0 5px; /* Add some spacing between images */
+            cursor: pointer; /* Change cursor to pointer on hover */
         }
         strong {
             text-decoration: underline;
             font-size: 1.2em; /* Increase font size */
+        }
+        /* Overlay styles */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .overlay img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .overlay .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -67,9 +92,26 @@
     <a href="https://bra.in/4pKzRr" target="_blank"><img class="th34-size" src="https://github.com/user-attachments/assets/9938ff81-c780-4612-b22b-a553c8b2465a" alt="Landscape Image 4"></a>
 
     <div class="landscape-row">
-        <img src="https://github.com/user-attachments/assets/d3dbc88b-161c-4f71-9459-0a9b6959ca7d" alt="Landscape Image 1">
-        <img src="https://github.com/user-attachments/assets/4bb091d0-b686-4aed-8cf7-be666ae7ae91" alt="Landscape Image 2">
-        <img src="https://github.com/user-attachments/assets/a5821f3f-73e3-4faa-a11a-8af7ff442840" alt="Landscape Image 3">
+        <img src="https://github.com/user-attachments/assets/d3dbc88b-161c-4f71-9459-0a9b6959ca7d" alt="Landscape Image 1" onclick="showOverlay(this.src)">
+        <img src="https://github.com/user-attachments/assets/4bb091d0-b686-4aed-8cf7-be666ae7ae91" alt="Landscape Image 2" onclick="showOverlay(this.src)">
+        <img src="https://github.com/user-attachments/assets/a5821f3f-73e3-4faa-a11a-8af7ff442840" alt="Landscape Image 3" onclick="showOverlay(this.src)">
     </div>
+
+    <!-- Overlay container -->
+    <div class="overlay" id="overlay">
+        <span class="close" onclick="hideOverlay()">&times;</span>
+        <img id="overlay-img" src="" alt="Enlarged Image">
+    </div>
+
+    <script>
+        function showOverlay(src) {
+            document.getElementById('overlay-img').src = src;
+            document.getElementById('overlay').style.display = 'flex';
+        }
+
+        function hideOverlay() {
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
