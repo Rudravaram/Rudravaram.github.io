@@ -49,6 +49,7 @@
             box-sizing: border-box;
             display: flex;
             align-items: center;
+            flex: 1 1 30%; /* Adjust to fit 3 questions per row */
         }
 
         .question span {
@@ -183,7 +184,7 @@
                 page-break-inside: avoid;
             }
             .question {
-                flex: 1 1 45%;
+                flex: 1 1 30%;
                 display: flex;
                 justify-content: space-between;
             }
@@ -295,6 +296,14 @@
             <option value="10">10</option>
             <option value="15">15</option>
             <option value="20">20</option>
+        </select>
+    </div>
+
+    <div class="options-section">
+        <label for="printLayout">Print Layout:</label>
+        <select id="printLayout">
+            <option value="single">Single Page</option>
+            <option value="separate">Separate Pages</option>
         </select>
     </div>
 
@@ -417,6 +426,7 @@
         var numAdditionQuestions = parseInt(document.getElementById('numAdditionQuestions').value);
         var numSubtractionQuestions = parseInt(document.getElementById('numSubtractionQuestions').value);
         var numMultiplicationQuestions = parseInt(document.getElementById('numMultiplicationQuestions').value);
+        var printLayout = document.getElementById('printLayout').value;
 
         var minNum1 = Math.pow(10, num1Digits - 1);
         var maxNum1 = Math.pow(10, num1Digits) - 1;
@@ -435,7 +445,16 @@
         document.getElementById('additionSection').style.display = 'flex';
         document.getElementById('subtractionSection').style.display = 'flex';
         document.getElementById('multiplicationSection').style.display = 'flex';
-      //  document.getElementById('answersSection').style.display = 'flex';
+
+        if (printLayout === 'single') {
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.pageBreakBefore = 'auto';
+            });
+        } else {
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.pageBreakBefore = 'always';
+            });
+        }
 
         DesignQuestionPaper(numDivisionQuestions, '÷', minNum1, maxNum1, minNum2, maxNum2, 'divisionSection', 'divisionAnswers');
         DesignQuestionPaper(numAdditionQuestions, '+', minNum1, maxNum1, minNum2, maxNum2, 'additionSection', 'additionAnswers');
