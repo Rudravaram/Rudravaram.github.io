@@ -49,7 +49,7 @@
             box-sizing: border-box;
             display: flex;
             align-items: center;
-            flex: 1 1 30%; /* Adjust to fit 3 questions per row */
+            /*  flex: 1 1 30%; Adjust to fit 3 questions per row */
         }
 
         .question span {
@@ -449,6 +449,7 @@
         document.getElementById('additionSection').style.display = 'flex';
         document.getElementById('subtractionSection').style.display = 'flex';
         document.getElementById('multiplicationSection').style.display = 'flex';
+        document.getElementById("CheckAnswers").disabled = false;
 
         if (printLayout === 'single') {
             document.querySelectorAll('.section').forEach(section => {
