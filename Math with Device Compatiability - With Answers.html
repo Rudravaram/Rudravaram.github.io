@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="title">Brain Boosters: Daily Math Fun</title>
     <style>
@@ -253,7 +253,7 @@
         
         /* Comments section styles */
         .comments-section {
-            width: 80%;
+            width: 100%;
             background: #f9f9f9;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -281,7 +281,7 @@
             <label for="num1Digits">Number of digits for first number:</label>
             <select id="num1Digits">
                 <option value="1">1</option>
-                <option value="2" selected>2</option>
+                <option value="2" selected="">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
@@ -294,7 +294,7 @@
             <label for="num2Digits">Number of digits for second number:</label>
             <select id="num2Digits">
                 <option value="1">1</option>
-                <option value="2" selected>2</option>
+                <option value="2" selected="">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
@@ -311,7 +311,7 @@
             <label for="numDivisionQuestions">Number of Division Questions:</label>
             <select id="numDivisionQuestions">
                 <option value="0">0</option>
-                <option value="5" selected>5</option>
+                <option value="5" selected="">5</option>
                 <option value="10">10</option>
                 <option value="15">15</option>
                 <option value="20">20</option>
@@ -319,7 +319,7 @@
             <label for="numAdditionQuestions">Number of Addition Questions:</label>
             <select id="numAdditionQuestions">
                 <option value="0">0</option>
-                <option value="5" selected>5</option>
+                <option value="5" selected="">5</option>
                 <option value="10">10</option>
                 <option value="15">15</option>
                 <option value="20">20</option>
@@ -327,7 +327,7 @@
             <label for="numSubtractionQuestions">Number of Subtraction Questions:</label>
             <select id="numSubtractionQuestions">
                 <option value="0">0</option>
-                <option value="5" selected>5</option>
+                <option value="5" selected="">5</option>
                 <option value="10">10</option>
                 <option value="15">15</option>
                 <option value="20">20</option>
@@ -335,7 +335,7 @@
             <label for="numMultiplicationQuestions">Number of Multiplication Questions:</label>
             <select id="numMultiplicationQuestions">
                 <option value="0">0</option>
-                <option value="5" selected>5</option>
+                <option value="5" selected="">5</option>
                 <option value="10">10</option>
                 <option value="15">15</option>
                 <option value="20">20</option>
@@ -345,23 +345,21 @@
         <div class="options-section">
             <h3>Print Layout:</h3>
             <label>
-                <input type="radio" name="printLayout" value="single" checked> Single Page
+                <input type="radio" name="printLayout" value="single" checked="" onclick="onPrintOptionsClicked()"> Single Page
             </label>
             <label>
-                <input type="radio" name="printLayout" value="separate"> Separate Pages
+                <input type="radio" name="printLayout" value="separate"  onclick="onPrintOptionsClicked()"> Separate Pages
             </label>
         </div>
     
-        <button id="generateQuestionsButton" onClick="generateQuestions()">Generate Questions</button>
+        <button id="generateQuestionsButton" onclick="generateQuestions()">Generate Questions</button>
     
         <div class="button-container">
-            <button id="printButton" onClick="window.print()">Print</button>
+            <button id="printButton" onclick="OnPrintClicked()">Print</button>
         </div>
     </div>
     
-    <div id="divisionSection" class="section">
-        <h3>Division Questions</h3>
-    </div>
+    
     <div id="additionSection" class="section">
         <h3>Addition Questions</h3>
     </div>
@@ -371,7 +369,9 @@
     <div id="multiplicationSection" class="section">
         <h3>Multiplication Questions</h3>
     </div>
-    
+    <div id="divisionSection" class="section">
+        <h3>Division Questions</h3>
+    </div>
     <div id="answersSection" class="section answer-section print-only">
         <h3>Answers</h3>
         <div id="divisionAnswers">
@@ -388,7 +388,7 @@
         </div>
     </div>
     
-    <input type="button" onClick="CheckAnswers()" id="CheckAnswers" value="Check Answers">
+    <input type="button" onclick="CheckAnswers()" id="CheckAnswers" value="Check Answers" disabled>
     <div class="comments-section no-print">
         <h3>Comments</h3>
         <p>Have feedback or questions? <a href="https://github.com/Rudravaram/Rudravaram.github.io/issues" target="_blank">Leave a comment</a></p>
@@ -396,7 +396,19 @@
 
     <script>
         var total_number_of_questions = 0;
-    
+        function onPrintOptionsClicked()
+        {
+            var printLayout = document.querySelector('input[name="printLayout"]:checked').value;
+            if (printLayout === 'single') {
+                document.querySelectorAll('.section').forEach(section => {
+                    section.style.pageBreakBefore = 'auto';
+                });
+            } else {
+                document.querySelectorAll('.section').forEach(section => {
+                    section.style.pageBreakBefore = 'always';
+                });
+            }
+        }
         function CheckAnswers() {
             var i = 1;
             var marks = 0;
@@ -468,15 +480,22 @@
                 i = i + 1;
             }
         }
-    
+        var questionGenerated=false;
+        function OnPrintClicked() {
+            if(questionGenerated === false)
+            {
+                 generateQuestions();
+            }
+            window.print();
+        }
         function generateQuestions() {
+            questionGenerated=true;
             var num1Digits = parseInt(document.getElementById('num1Digits').value);
             var num2Digits = parseInt(document.getElementById('num2Digits').value);
             var numDivisionQuestions = parseInt(document.getElementById('numDivisionQuestions').value);
             var numAdditionQuestions = parseInt(document.getElementById('numAdditionQuestions').value);
             var numSubtractionQuestions = parseInt(document.getElementById('numSubtractionQuestions').value);
             var numMultiplicationQuestions = parseInt(document.getElementById('numMultiplicationQuestions').value);
-            var printLayout = document.querySelector('input[name="printLayout"]:checked').value;
     
             var minNum1 = Math.pow(10, num1Digits - 1);
             var maxNum1 = Math.pow(10, num1Digits) - 1;
@@ -497,16 +516,8 @@
             document.getElementById('multiplicationSection').style.display = 'flex';
             document.getElementById("CheckAnswers").disabled = false;
     
-            if (printLayout === 'single') {
-                document.querySelectorAll('.section').forEach(section => {
-                    section.style.pageBreakBefore = 'auto';
-                });
-            } else {
-                document.querySelectorAll('.section').forEach(section => {
-                    section.style.pageBreakBefore = 'always';
-                });
-            }
-    
+            
+            onPrintOptionsClicked();
             DesignQuestionPaper(numDivisionQuestions, '÷', minNum1, maxNum1, minNum2, maxNum2, 'divisionSection', 'divisionAnswers');
             DesignQuestionPaper(numAdditionQuestions, '+', minNum1, maxNum1, minNum2, maxNum2, 'additionSection', 'additionAnswers');
             DesignQuestionPaper(numSubtractionQuestions, '-', minNum1, maxNum1, minNum2, maxNum2, 'subtractionSection', 'subtractionAnswers');
@@ -514,5 +525,5 @@
         }
     </script>
     
-</body>
-</html>
+
+</body></html>
