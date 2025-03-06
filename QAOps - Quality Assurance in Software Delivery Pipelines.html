@@ -106,5 +106,29 @@
     <h3><strong>Please note:</strong> This Model is ever changing and its only 75-80% complete - More details would be added soon.</h3>
     <h3><strong>Developed by: <a href="https://www.linkedin.com/in/sridhar-chakravarthy-rudravaram-prince2-a0b82722/" target="_blank">Sridhar Chakravarthy Rudravaram</a></strong>
 
+        <a href="https://bra.in/4pKzRr" target="_blank"><img class="th34-size" src="https://github.com/user-attachments/assets/9938ff81-c780-4612-b22b-a553c8b2465a" alt="Landscape Image 4"></a>
+
+    <div class="landscape-row">
+        <img src="https://github.com/user-attachments/assets/d3dbc88b-161c-4f71-9459-0a9b6959ca7d" alt="Landscape Image 1" onclick="showOverlay(this.src)">
+        <img src="https://github.com/user-attachments/assets/4bb091d0-b686-4aed-8cf7-be666ae7ae91" alt="Landscape Image 2" onclick="showOverlay(this.src)">
+        <img src="https://github.com/user-attachments/assets/a5821f3f-73e3-4faa-a11a-8af7ff442840" alt="Landscape Image 3" onclick="showOverlay(this.src)">
+    </div>
+
+    <!-- Overlay container -->
+    <div class="overlay" id="overlay">
+        <span class="close" onclick="hideOverlay()">&times;</span>
+        <img id="overlay-img" src="" alt="Enlarged Image">
+    </div>
+
+    <script>
+        function showOverlay(src) {
+            document.getElementById('overlay-img').src = src;
+            document.getElementById('overlay').style.display = 'flex';
+        }
+
+        function hideOverlay() {
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
