@@ -96,7 +96,7 @@
 <body>
     <h1>PII aka Personally Identifiable Information</h1>
     <div class="container">
-        <img class="half-size" src="https://github-production-user-asset-6210df.s3.amazonaws.com/1819936/429105193-edc3ed48-5104-48f7-98bb-865e40595cdb.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250401%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250401T160526Z&X-Amz-Expires=300&X-Amz-Signature=24e7a51d6ef60d5ea1afc66206702512d480f8f3a453534fe7b43e9148d9e369&X-Amz-SignedHeaders=host" alt="PII aka Personally Identifiable Information">
+        <img id="dynamic-image" class="half-size" src="" alt="PII aka Personally Identifiable Information">
         <div class="text-content">
     <h3>Your <em>Personal Information (PII)<em> 🪪 has always been a critical topic, especially as technology evolves. The ways we collect, store, and protect data have grown increasingly complex, making it vital to treat PII like a prized asset in the digital world 🧾..</h3>
     <h3>This involves ensuring that the data is handled responsibly at every stage of its lifecycle—right from collection to storage and potential sharing.</h3>
@@ -148,5 +148,19 @@
             document.getElementById('overlay').style.display = 'none';
         }
     </script>
+        <script>
+            // Array of image URLs
+            const images = [
+                "https://github-production-user-asset-6210df.s3.amazonaws.com/1819936/429105309-834b023b-2208-4d67-b008-d86e78ee7431.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250401%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250401T172758Z&X-Amz-Expires=300&X-Amz-Signature=af84043025dacc420fdf77c0b00fd4bf3f341c6caad7f97b839da1872557c67a&X-Amz-SignedHeaders=host",
+                "https://github-production-user-asset-6210df.s3.amazonaws.com/1819936/429105109-a5021be9-6d65-4a60-82d8-adb7f94d0ecc.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250401%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250401T155942Z&X-Amz-Expires=300&X-Amz-Signature=e8ac09a292309e75846f4299632860d7742b1a9fe150718321d56161cbbfaa33&X-Amz-SignedHeaders=host",
+                "https://github-production-user-asset-6210df.s3.amazonaws.com/1819936/429105193-edc3ed48-5104-48f7-98bb-865e40595cdb.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250401%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250401T172751Z&X-Amz-Expires=300&X-Amz-Signature=4679abf238934e2f2b70f7d38317c4fc88bd406bd5fd9254ed3b2245a8af365b&X-Amz-SignedHeaders=host"
+            ];
+    
+            // Select a random image
+            const randomImage = images[Math.floor(Math.random() * images.length)];
+    
+            // Set the src attribute of the image
+            document.getElementById("dynamic-image").src = randomImage;
+        </script>
 </body>
 </html>
