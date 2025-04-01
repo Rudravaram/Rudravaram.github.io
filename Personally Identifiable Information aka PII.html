@@ -96,7 +96,7 @@
 <body>
     <h1>PII aka Personally Identifiable Information</h1>
     <div class="container">
-        <img class="half-size" src="https://github.com/user-attachments/assets/73504f4a-bb05-4a1d-a4ae-f782aec725d5" alt="PII aka Personally Identifiable Information">
+        <img id="dynamic-image" class="half-size" src="" alt="PII aka Personally Identifiable Information">
         <div class="text-content">
     <h3>Your <em>Personal Information (PII)<em> 🪪 has always been a critical topic, especially as technology evolves. The ways we collect, store, and protect data have grown increasingly complex, making it vital to treat PII like a prized asset in the digital world 🧾..</h3>
     <h3>This involves ensuring that the data is handled responsibly at every stage of its lifecycle—right from collection to storage and potential sharing.</h3>
@@ -147,6 +147,19 @@
         function hideOverlay() {
             document.getElementById('overlay').style.display = 'none';
         }
+
+        // Array of image URLs
+        const images = [
+            "https://github.com/user-attachments/assets/a5021be9-6d65-4a60-82d8-adb7f94d0ecc",
+            "https://github.com/user-attachments/assets/edc3ed48-5104-48f7-98bb-865e40595cdb",
+            "https://github.com/user-attachments/assets/834b023b-2208-4d67-b008-d86e78ee7431"
+        ];
+
+        // Select a random image
+        const randomImage = images[Math.floor(Math.random() * images.length)];
+
+        // Set the src attribute of the image
+        document.getElementById("dynamic-image").src = randomImage;
     </script>
 </body>
 </html>
