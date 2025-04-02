@@ -93,7 +93,7 @@
 <body>
     <h1>QAOps - Quality Assurance in Software Delivery Pipelines</h1>
     <div class="container">
-        <img class="half-size" src="https://github.com/user-attachments/assets/73504f4a-bb05-4a1d-a4ae-f782aec725d5" alt="QAOps - Quality Assurance and Developer Operations">
+        <img id="dynamic-image" class="half-size" src="" alt="QAOps - Quality Assurance and Developer Operations">
         <div class="text-content">
     <h3>QAOps (Quality Assurance Operations) integrates QA processes with DevOps practices to enhance software quality and delivery speed.</h3>
     <h3>Ensuring high-quality releases while maintaining rapid delivery cycles is a significant challenge. Implementing QAOps overcomes this challenge by embedding QA processes into the continuous integration/continuous deployment (CI/CD) pipeline. This move detects potential issues in the early stages, allows for continuous testing, and speeds up feedback loops.</h3>
@@ -125,6 +125,20 @@
         function hideOverlay() {
             document.getElementById('overlay').style.display = 'none';
         }
+    </script>
+    <script>
+        // Array of permanent image URLs
+        const images = [
+            "https://github.com/user-attachments/assets/73504f4a-bb05-4a1d-a4ae-f782aec725d5", // Replace with your permanent URL
+            "https://github.com/user-attachments/assets/db929b37-3986-4413-95c6-685ddc086d15", // Replace with your permanent URL
+            "https://github.com/user-attachments/assets/eb0b8f6b-9a15-44ef-8267-439df7f058c3"  // Replace with your permanent URL
+        ];
+
+        // Select a random image
+        const randomImage = images[Math.floor(Math.random() * images.length)];
+
+        // Set the src attribute of the image
+        document.getElementById("dynamic-image").src = randomImage;
     </script>
 </body>
 </html>
