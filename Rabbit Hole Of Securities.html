@@ -97,7 +97,7 @@
     <h2>Rabbit Hole into Personal, IT, and Application Securities</h2>
 
     <div class="container">
-        <img class="half-size" src="https://github.com/user-attachments/assets/9ced6a44-891b-4cae-83d8-8e3f797c2eb3" alt="Rabbit Hole Of Securities">
+        <img id="dynamic-image" class="half-size" src="" alt="Rabbit Hole Of Securities">
         <div class="text-content">
             <h3>In today's interconnected world, the concept of security has evolved into a multifaceted discipline, encompassing personal, IT, and application securities. Each layer represents a critical aspect of safeguarding our digital lives, ensuring that information remains private, systems remain operational, and applications function as intended.</h3>
             <h3><strong>Personal Security:</strong> At the individual level, personal security is about protecting oneself from cyber threats. This includes using strong, unique passwords, enabling two-factor authentication, and being vigilant about phishing attempts and social engineering attacks. Education and awareness are key; understanding the tactics used by cybercriminals can significantly reduce one's risk.</h3>
@@ -135,6 +135,21 @@
         function hideOverlay() {
             document.getElementById('overlay').style.display = 'none';
         }
+    </script>
+    <script>
+        // Array of image URLs
+        const images = [
+            "https://github.com/user-attachments/assets/9ced6a44-891b-4cae-83d8-8e3f797c2eb3",
+            "https://github.com/user-attachments/assets/a5800436-08d1-4ff7-bfb2-b69f76680c0d",
+            "https://github.com/user-attachments/assets/8b10d434-1a6a-4211-a9e9-33fad1c4713c",
+            "https://github.com/user-attachments/assets/cf5ae6e6-0434-4fca-b18d-e64e283c1e82"
+        ];
+
+        // Select a random image
+        const randomImage = images[Math.floor(Math.random() * images.length)];
+
+        // Set the src attribute of the image
+        document.getElementById("dynamic-image").src = randomImage;
     </script>
 </body>
 </html>
